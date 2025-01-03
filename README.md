@@ -2,21 +2,6 @@
 
 ## Step 1: Create Jenkins Server
 
-1. **Install Jenkins**:
-   - Follow the official documentation to install Jenkins on your server or local machine.
-
-2. **Start Jenkins**:
-   - Once installed, start the Jenkins service. By default, Jenkins runs on port `8080`.
-   - Open your web browser and navigate to `http://localhost:8080` (or the appropriate IP address).
-
-3. **Unlock Jenkins**:
-   - During the first launch, Jenkins will ask for an unlock key. You can find this key in the Jenkins home directory:
-     ```bash
-     cat /var/lib/jenkins/secrets/initialAdminPassword
-     ```
-
-4. **Complete Setup**:
-   - Follow the setup wizard to install recommended plugins and create an admin user.
 
 ## Step 2: Integrate Jenkins with Git
 
@@ -46,12 +31,11 @@
    - Click **Save** to save the pipeline configuration.
    - Click **Build Now** to trigger the pipeline.
 
-## Conclusion
-
-You have now set up a Jenkins server, configured it to integrate with Git, and created a simple pipeline to check out your project.
 
 To view the files that have been checked out, navigate to the Jenkins workspace directory:
 ```bash
 cd /var/lib/jenkins/workspace
+
+## Step 3: Add Webhooks
 
 ### Step 3: Creating the Dockerfile
