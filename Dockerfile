@@ -1,10 +1,21 @@
 FROM centos:latest
-MAINTAINER karim.abdelbasit2012@gmail.com
-RUN yum install -y http \ zip\ unzip
-Add https://www.free-css.com/assets/files/free-css-templates/download/page%20296/oxer.zip var/www/html/
+LABEL maintainer="karim.abdelbasit2012@gmail.com"
+
+# تثبيت الحزم المطلوبة
+RUN yum install -y httpd zip unzip && yum clean all
+
+# تنزيل وفك ضغط القالب
+RUN curl -o /var/www/html/oxer.zip https://www.free-css.com/assets/files/free-css-templates/download/page%20296/oxer.zip && \
+    cd /var/www/html/ && \
+    unzip oxer.zip && \
+    cp -rvf oxer/* . && \
+    rm -rf oxer oxer.zip
+
+# إعداد العمل
 WORKDIR /var/www/html/
-RUN unzip oxer.zip
-RUN cp -rvf oxer/* .
-RUN rm -rf oxer oxer.zip
-CMD [ "/usr/sbin/http", "-D", "FOREGROUND" ]
-EXPOSE 80 
+
+# تشغيل خادم Apache في الوضع الأمامي
+CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+
+# فتح المنفذ 80
+EXPOSE 80
