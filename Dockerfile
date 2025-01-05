@@ -1,4 +1,4 @@
-FROM centos:latest
+FROM rockylinux:8
 LABEL maintainer="karim.abdelbasit2012@gmail.com"
 
 # تثبيت الحزم المطلوبة
