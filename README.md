@@ -35,6 +35,7 @@
 To view the files that have been checked out, navigate to the Jenkins workspace directory:
 ```bash
 cd /var/lib/jenkins/workspace
+```
 
 ## Step 3: Add Webhooks
 
